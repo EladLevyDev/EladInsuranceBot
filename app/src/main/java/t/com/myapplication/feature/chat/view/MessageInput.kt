@@ -21,7 +21,6 @@ package t.com.myapplication.feature.chat.view
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
-import android.animation.ObjectAnimator
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.os.Build
@@ -117,7 +116,7 @@ class MessageInput : RelativeLayout, TextWatcher {
      */
     override fun onTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
         input = s
-        messageSendButton.isEnabled = input!!.length > 2 && stepRequiredAction
+        messageSendButton.isEnabled = input!!.length > 1 && stepRequiredAction
     }
 
     /**
