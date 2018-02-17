@@ -1,0 +1,71 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <EditText
+        android:id="@id/messageInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@id/attachmentButtonSpace"
+        android:layout_toLeftOf="@id/sendButtonSpace"
+        android:layout_toRightOf="@id/attachmentButtonSpace"
+        android:layout_toStartOf="@id/sendButtonSpace"
+        android:inputType="textAutoCorrect|textAutoComplete|textMultiLine|textCapSentences" />
+
+    <android.support.v4.widget.Space
+        android:id="@id/sendButtonSpace"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_toLeftOf="@id/messageSendButton"
+        android:layout_toStartOf="@id/messageSendButton" />
+
+    <ImageButton
+        android:id="@id/messageSendButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true" />
+
+
+    <io.codetail.widget.RevealFrameLayout
+        android:layout_width="match_parent"
+        android:id="@+id/revealFrame"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/revealItems"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:visibility="invisible"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:background="@color/gray"
+                android:text="@string/yes"
+                android:id="@+id/btnPositive"
+                android:layout_marginRight="2dp"
+                android:layout_height="wrap_content" />
+
+
+            <Button
+                android:layout_width="0dp"
+                android:background="@color/gray"
+                android:layout_weight="1"
+                android:id="@+id/btnNegative"
+                android:layout_marginLeft="2dp"
+                android:text="@string/no"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </io.codetail.widget.RevealFrameLayout>
+
+</merge>

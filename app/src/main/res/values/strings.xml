@@ -1,0 +1,11 @@
+<resources>
+    <!--General-->
+    <string name="app_name">Insurance Bot Maya</string>
+
+    <!-- Chat -->
+    <string name="hint_enter_a_message">Type a message…</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="typing">Maya is typing...</string>
+
+</resources>
