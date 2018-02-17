@@ -8,4 +8,5 @@
     <dimen name="bubble_root_horizontal_margin">16dp</dimen>
     <dimen name="bubble_root_vertical_margin">16dp</dimen>
     <dimen name="bubble_margin_start">40dp</dimen>
+    <dimen name="avatar_image_size">40dp</dimen>
 </resources>

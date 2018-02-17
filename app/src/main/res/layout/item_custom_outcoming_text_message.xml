@@ -11,8 +11,8 @@
         android:id="@id/bubble"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="@dimen/bubble_margin_start"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="@dimen/bubble_margin_start"
         android:minWidth="@dimen/min_bubble_chat"
         android:orientation="vertical">
 
@@ -28,8 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@id/bubble"
-        android:layout_alignStart="@id/bubble"
         android:layout_below="@id/bubble"
-        android:layout_marginStart="@dimen/bubble_root_horizontal_margin" />
+        android:layout_marginLeft="@dimen/bubble_root_horizontal_margin" />
 
 </RelativeLayout>
