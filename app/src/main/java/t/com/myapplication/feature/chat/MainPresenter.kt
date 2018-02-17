@@ -28,14 +28,13 @@ constructor(private val currentState: State, private val stepProvider: StepProvi
 
     fun initAdapter(context: Context) {
         checkViewAttached()
-
         baseView?.apply {
             val imageLoader = ImageLoader { imageView, url -> Picasso.with(context).load(url).into(imageView) }
             val holdersConfig = MessageHolders()
                     .setIncomingTextLayout(R.layout.item_custom_incoming_text_message)
                     .setOutcomingTextLayout(R.layout.item_custom_outcoming_text_message)
             val messageAdapter = MessagesListAdapter<Message>(currentState.userId, holdersConfig, imageLoader)
-            baseView?.setAdapter(messageAdapter)
+            setAdapter(messageAdapter)
             getFirstStep()
         }
     }
