@@ -14,7 +14,7 @@ InsuranceBot Created for test purposes only!
 
 ## Screens
 
-![screen](../master/image.png) | = 540x1110
+![screen](../master/image.png)
 
 ## Libraries
 
