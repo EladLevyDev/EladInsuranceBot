@@ -5,8 +5,8 @@
 
     <!--Outgoing message -->
     <dimen name="min_bubble_chat">60dp</dimen>
-    <dimen name="bubble_root_horizontal_margin">16dp</dimen>
-    <dimen name="bubble_root_vertical_margin">16dp</dimen>
+    <dimen name="bubble_horizontal_margin">16dp</dimen>
+    <dimen name="bubble_vertical_margin">16dp</dimen>
     <dimen name="bubble_margin_start">40dp</dimen>
-    <dimen name="avatar_image_size">40dp</dimen>
+    <dimen name="avatar_image_size">56dp</dimen>
 </resources>

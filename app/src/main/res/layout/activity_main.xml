@@ -17,14 +17,14 @@
 
 
             <com.hanks.htextview.typer.TyperTextView
+                android:id="@+id/typingText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/typingText"
-                android:textColor="@color/gray"
                 android:layout_gravity="right"
-                android:textStyle="bold"
-                android:textSize="14sp"
                 android:layout_marginRight="25dp"
+                android:textColor="@color/gray"
+                android:textSize="14sp"
+                android:textStyle="bold"
                 app:charIncrease="4"
                 app:typerSpeed="100"/>
 
@@ -42,8 +42,8 @@
             android:id="@+id/messagesList"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:incomingAvatarHeight="56dp"
-            app:incomingAvatarWidth="56dp"
+            app:incomingAvatarHeight="@dimen/avatar_image_size"
+            app:incomingAvatarWidth="@dimen/avatar_image_size"
             app:incomingBubbleDrawable="@drawable/bg_custom_incoming_message"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             app:layout_constraintBottom_toBottomOf="@+id/divider"
@@ -57,8 +57,8 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_above="@+id/input"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:background="@color/gray_light"
             app:layout_constraintTop_toTopOf="@+id/input" />
 
@@ -69,8 +69,6 @@
             app:attachmentButtonBackground="?attr/selectableItemBackgroundBorderless"
             app:attachmentButtonDefaultIconColor="@color/green"
             app:attachmentButtonDefaultIconPressedColor="@color/green_dark"
-            app:attachmentButtonHeight="27dp"
-            app:attachmentButtonWidth="27dp"
             app:inputButtonBackground="@drawable/bg_custom_layout_send"
             app:inputButtonDefaultIconColor="@color/white"
             app:inputButtonDefaultIconDisabledColor="@color/white60"
