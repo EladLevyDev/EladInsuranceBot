@@ -5,7 +5,7 @@ InsuranceBot is Asking simple questions and respond to user actions.
 InsuranceBot Created for test purposes only!
 
 ## Features
-* A beatifull and easy to use.
+* Easy and simple to use.
 * Clean and nice chat ui - support both incoming and outcoming messages.
 * Different look for both incoming & outcoming using custom views
 * 100% Kotlin project
