@@ -1,12 +1,12 @@
 # InsuranceBot
 
-InsuranceBot is an chat experiment Bot, running on Android and using Conversation.
-InsuranceBot is Asking simple questions and respond to user actions.
-InsuranceBot Created for test purposes only!
+InsuranceBot is an experimental chat bot which runs on Android
+InsuranceBot asks a series of questions which will differ depending on the users response
+InsuranceBot is created for test purposes only
 
 ## Features
-* Easy and simple to use.
-* Clean and nice chat ui - support both incoming and outcoming messages.
+* Easy and simple to use
+* Clean and nice chat ui - support both incoming and outcoming messages
 * Different look for both incoming & outcoming using custom views
 * 100% Kotlin project
 * Using MVP + Dagger + ButterKnife + RxAndroid
