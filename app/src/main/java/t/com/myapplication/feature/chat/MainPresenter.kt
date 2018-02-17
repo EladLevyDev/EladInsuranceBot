@@ -26,6 +26,11 @@ import javax.inject.Inject
 class MainPresenter @Inject
 constructor(private val currentState: State, private val stepProvider: StepProvider) : BasePresenter<MainView>(), MessageInput.InputListener {
 
+    companion object {
+        const val DEFAULT_SLEEP_TIME = 2L
+    }
+
+
     fun initAdapter(context: Context) {
         checkViewAttached()
         baseView?.apply {
@@ -44,7 +49,7 @@ constructor(private val currentState: State, private val stepProvider: StepProvi
     }
 
 
-    private fun getNextStep(stepIndex: Int, delay: Long) {
+    private fun getNextStep(stepIndex: Int, delay: Long = DEFAULT_SLEEP_TIME) {
         checkViewAttached()
         baseView?.setBotTypingStatus(true)
         if (stepProvider.hasMoreSteps()) {
@@ -70,7 +75,7 @@ constructor(private val currentState: State, private val stepProvider: StepProvi
 
     private fun onStepFinished() {
         currentState.currentStepIndex++
-        getNextStep(currentState.currentStepIndex, 2)
+        getNextStep(currentState.currentStepIndex)
     }
 
     override fun onUserActionSubmit(input: Any?): Boolean {
@@ -80,8 +85,9 @@ constructor(private val currentState: State, private val stepProvider: StepProvi
         val userActionStep: BaseUserActionStep = currentState.currentStep as BaseUserActionStep
         if (!userActionStep.isInputValid(input)) {
             baseView?.setBotTypingStatus(true)
+
             stepProvider.fakeDelayForError()
-                    .delay(2, TimeUnit.SECONDS).compose(SchedulerUtils.ioToMain<String>())
+                    .delay(DEFAULT_SLEEP_TIME, TimeUnit.SECONDS).compose(SchedulerUtils.ioToMain<String>())
                     .subscribe({ _ ->
                         baseView?.apply {
                             setBotTypingStatus(false)
