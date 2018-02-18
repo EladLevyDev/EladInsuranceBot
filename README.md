@@ -1,8 +1,8 @@
 # InsuranceBot
 
-InsuranceBot is an experimental chat bot which runs on Android
-InsuranceBot asks a series of questions which will differ depending on the users response
-InsuranceBot is created for test purposes only
+*  InsuranceBot is an experimental chat bot which runs on Android
+* InsuranceBot asks a series of questions which will differ depending on the users response
+* InsuranceBot is created for test purposes only
 
 ## Features
 * Easy and simple to use
