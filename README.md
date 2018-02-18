@@ -28,6 +28,7 @@
 
 ## Improvements to be made
 * Bot should manage steps by server remote
-* Typing animation & Restart bot function improvements
+* Typing animation 
+* Restart bot function
 
 
