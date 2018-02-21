@@ -1,8 +1,8 @@
 package t.com.myapplication.base
 
-import io.mvpstarter.sample.features.base.Presenter
 import rx.Subscription
 import rx.subscriptions.CompositeSubscription
+import java.lang.ref.WeakReference
 
 /**
  * Base class that implements the Presenter interface and provides a base implementation for
@@ -11,23 +11,27 @@ import rx.subscriptions.CompositeSubscription
  */
 open class BasePresenter<T : BaseView> : Presenter<T> {
 
-    var baseView: T? = null
-        private set
+    var baseView: WeakReference<T>? = null
     private val compositeSubscription = CompositeSubscription()
 
     override fun attachView(mvpView: T) {
-        this.baseView = mvpView
+        baseView = WeakReference(mvpView)
     }
 
     override fun detachView() {
-        baseView = null
+        baseView = null;
         if (!compositeSubscription.isUnsubscribed) {
             compositeSubscription.clear()
         }
     }
 
+    override fun getBaseView(): T? {
+        return baseView?.get();
+    }
+
+
     private val isViewAttached: Boolean
-        get() = baseView != null
+        get() = baseView?.get() != null
 
     fun checkViewAttached() {
         if (!isViewAttached) throw BaseViewNotAttachedException()

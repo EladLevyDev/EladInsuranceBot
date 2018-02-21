@@ -33,7 +33,7 @@ constructor(private val currentState: State, private val stepProvider: StepProvi
 
     fun initAdapter(context: Context) {
         checkViewAttached()
-        baseView?.apply {
+        getBaseView()?.apply {
             val imageLoader = ImageLoader { imageView, url -> Picasso.with(context).load(url).into(imageView) }
             val holdersConfig = MessageHolders()
                     .setIncomingTextLayout(R.layout.item_custom_incoming_text_message)
@@ -51,14 +51,14 @@ constructor(private val currentState: State, private val stepProvider: StepProvi
 
     private fun getNextStep(stepIndex: Int, delay: Long = DEFAULT_SLEEP_TIME) {
         checkViewAttached()
-        baseView?.setBotTypingStatus(true)
+        getBaseView()?.setBotTypingStatus(true)
         if (stepProvider.hasMoreSteps()) {
             stepProvider.getNextStep(stepIndex)
                     .delay(delay, TimeUnit.SECONDS)
                     .compose(SchedulerUtils.ioToMain<BaseStep>())
                     .subscribe({ newStep ->
                         currentState.currentStep = newStep
-                        baseView?.apply {
+                        getBaseView()?.apply {
                             showNewStepData(newStep)
                             when (currentState.isStepRequiredNoAction()) {
                                 true -> onStepFinished()
@@ -69,7 +69,7 @@ constructor(private val currentState: State, private val stepProvider: StepProvi
         } else {
             // This was created for test purpose only! if we got here, we have no more steps and user press restart
             stepProvider.restart()
-            baseView?.restartBot();
+            getBaseView()?.restartBot();
         }
     }
 
@@ -84,12 +84,12 @@ constructor(private val currentState: State, private val stepProvider: StepProvi
         }
         val userActionStep: BaseUserActionStep = currentState.currentStep as BaseUserActionStep
         if (!userActionStep.isInputValid(input)) {
-            baseView?.setBotTypingStatus(true)
+            getBaseView()?.setBotTypingStatus(true)
 
             stepProvider.fakeDelayForError()
                     .delay(DEFAULT_SLEEP_TIME, TimeUnit.SECONDS).compose(SchedulerUtils.ioToMain<String>())
                     .subscribe({ _ ->
-                        baseView?.apply {
+                        getBaseView()?.apply {
                             setBotTypingStatus(false)
                             showError(userActionStep.generateError())
                         }
@@ -107,6 +107,6 @@ constructor(private val currentState: State, private val stepProvider: StepProvi
         val calendar = Calendar.getInstance()
         val userMessage = Message(currentState.userId, currentState.currentUser, input.toString())
         userMessage.setCreatedAt(calendar.time)
-        baseView?.displayUserInputMessage(userMessage)
+        getBaseView()?.displayUserInputMessage(userMessage)
     }
 }

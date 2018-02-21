@@ -44,8 +44,8 @@ class MainActivity : BaseActivity(), MainView {
         messagesList?.apply {
             layoutManager = LinearLayoutManager(context)
             setAdapter(mainAdapter)
+            visible()
         }
-        messagesList?.visible()
     }
 
     override fun showNewStepData(step: BaseStep) {
