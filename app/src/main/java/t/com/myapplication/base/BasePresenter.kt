@@ -11,7 +11,7 @@ import java.lang.ref.WeakReference
  */
 open class BasePresenter<T : BaseView> : Presenter<T> {
 
-    var baseView: WeakReference<T>? = null
+    private var baseView: WeakReference<T>? = null
     private val compositeSubscription = CompositeSubscription()
 
     override fun attachView(mvpView: T) {
